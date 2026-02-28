@@ -1,5 +1,5 @@
-#  Moon-Userbot - telegram userbot
-#  Copyright (C) 2020-present Moon Userbot Organization
+#  Dexbot - telegram userbot
+#  Copyright (C) 2020-present Dexbot Organization
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -33,14 +33,14 @@ async def support(_, message: Message):
             commands_count += 1
 
     await message.edit(
-        f"<b>Moon-Userbot\n\n"
-        "GitHub: <a href=https://github.com/The-MoonTg-project/Moon-Userbot>Moon-Userbot</a>\n"
-        "Custom modules repository: <a href=https://github.com/The-MoonTg-project/custom_modules>"
+        f"<b>Dexbot\n\n"
+        "GitHub: <a href=https://github.com/The-DexTg-project/Dexbot>Dexbot</a>\n"
+        "Custom modules repository: <a href=https://github.com/The-DexTg-project/custom_modules>"
         "custom_modules</a>\n"
-        "License: <a href=https://github.com/The-MoonTg-project/Moon-Userbot/blob/master/LICENSE>GNU GPL v3</a>\n\n"
-        "Channel: @moonuserbot\n"
-        "Custom modules: @moonub_modules\n"
-        "Chat [EN]: @moonub_chat\n"
+        "License: <a href=https://github.com/The-DexTg-project/Dexbot/blob/master/LICENSE>GNU GPL v3</a>\n\n"
+        "Channel: @dexbot\n"
+        "Custom modules: @dexbot_modules\n"
+        "Chat [EN]: @dexbot_chat\n"
         f"Main developers: {', '.join(devs)}\n\n"
         f"Python version: {python_version}\n"
         f"Modules count: {len(modules_help) / 1}\n"
@@ -53,7 +53,7 @@ async def support(_, message: Message):
 async def version(client: Client, message: Message):
     changelog = ""
     ub_version = ".".join(userbot_version.split(".")[:2])
-    async for m in client.search_messages("moonuserbot", query=f"{userbot_version}."):
+    async for m in client.search_messages("dexbot", query=f"{userbot_version}."):
         if ub_version in m.text:
             changelog = m.message_id
 
@@ -67,8 +67,8 @@ async def version(client: Client, message: Message):
     )
 
     await message.reply(
-        f"<b>Moon Userbot version: {userbot_version}\n"
-        f"Changelog </b><i><a href=https://t.me/moonuserbot/{changelog}>in channel</a></i>.<b>\n"
+        f"<b>Dexbot version: {userbot_version}\n"
+        f"Changelog </b><i><a href=https://t.me/dexbot/{changelog}>in channel</a></i>.<b>\n"
         f"Changelog written by </b><i>"
         f"<a href=https://t.me/Qbtaumai>Abhi</a></i>\n\n"
         + (

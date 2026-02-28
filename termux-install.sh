@@ -12,17 +12,17 @@ pkg install python3 git clang ffmpeg wget libjpeg-turbo libcrypt ndk-sysroot zli
 
 LDFLAGS="-L${PREFIX}/lib/" CFLAGS="-I${PREFIX}/include/" pip3 install --upgrade wheel pillow
 
-if [[ -d "Moon-Userbot" ]]; then
-  cd Moon-Userbot || exit
+if [[ -d "Dexbot" ]]; then
+  cd Dexbot || exit
 elif [[ -f ".env.dist" ]] && [[ -f "main.py" ]] && [[ -d "modules" ]]; then
   :
 else
-  git clone https://github.com/The-MoonTg-project/Moon-Userbot || exit 2
-  cd Moon-Userbot || exit 2
+  git clone https://github.com/The-DexTg-project/Dexbot || exit 2
+  cd Dexbot || exit 2
 fi
 
 if [[ -f ".env" ]] && [[ -f "my_account.session" ]]; then
-  echo "It seems that Moon-Userbot is already installed. Exiting..."
+  echo "It seems that Dexbot is already installed. Exiting..."
   exit
 fi
 
@@ -106,7 +106,7 @@ if [[ $db_type = 1 ]]; then
   echo "Please enter db_url"
   echo "You can get it here -> https://telegra.ph/How-to-get-Mongodb-URL-and-login-in-telegram-08-01"
   read -r -p "> " db_url
-  db_name=Moon_Userbot
+  db_name=Dexbot
   db_type=mongodb
 else
   db_name=db.sqlite3
@@ -139,6 +139,6 @@ python3 install.py 3 || exit 3
 
 echo
 echo "============================"
-echo "Great! Moon-Userbot installed successfully!"
-echo "Start with: \"cd Moon-Userbot && python3 main.py\""
+echo "Great! Dexbot installed successfully!"
+echo "Start with: \"cd Dexbot && python3 main.py\""
 echo "============================"

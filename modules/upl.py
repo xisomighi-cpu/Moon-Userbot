@@ -1,5 +1,5 @@
-#  Moon-Userbot - telegram userbot
-#  Copyright (C) 2020-present Moon Userbot Organization
+#  Dexbot - telegram userbot
+#  Copyright (C) 2020-present Dexbot Organization
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -67,16 +67,16 @@ async def dlf(client: Client, message: Message):
         await message.edit(f"<b>Usage: </b><code>{prefix}dlf [reply to a file]</code>")
 
 
-@Client.on_message(filters.command("moonlogs", prefix) & filters.me)
+@Client.on_message(filters.command("dexlogs", prefix) & filters.me)
 async def mupl(client: Client, message: Message):
-    link = "moonlogs.txt"
+    link = "dexlogs.txt"
     if os.path.exists(link):
         try:
             await message.edit("<b>Uploading Now...</b>")
             with open(link, "rb") as f:
                 data = f.read()
             bio = io.BytesIO(data)
-            bio.name = "moonlogs.txt"
+            bio.name = "dexlogs.txt"
             await client.send_document(
                 message.chat.id,
                 bio,
@@ -128,5 +128,5 @@ modules_help["uplud"] = {
     "upl [filepath]/[reply to path]*": "Upload a file from your local machine to Telegram",
     "dlf": "Download a file from Telegram to your local machine",
     "uplr [filepath]/[reply to path]*": "Upload a file from your local machine to Telegram, delete the file after uploading",
-    "moonlogs": "Upload the moonlogs.txt file to Telegram",
+    "dexlogs": "Upload the dexlogs.txt file to Telegram",
 }

@@ -1,9 +1,9 @@
 services:
-    moonuserbot:
+    dexbot:
         build:
             context: .
             dockerfile: Dockerfile
-        container_name: moonuserbot
+        container_name: dexbot
         restart: unless-stopped
         env_file:
             - .env

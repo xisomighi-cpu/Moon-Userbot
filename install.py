@@ -1,5 +1,5 @@
-#  Moon-Userbot - telegram userbot
-#  Copyright (C) 2020-present Moon Userbot Organization
+#  Dexbot - telegram userbot
+#  Copyright (C) 2020-present Dexbot Organization
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -48,20 +48,20 @@ if __name__ == "__main__":
 
     install_type = sys.argv[1] if len(sys.argv) > 1 else "3"
     if install_type == "1":
-        restart = "pm2 restart Moon"
+        restart = "pm2 restart Dexbot"
     elif install_type == "2":
-        restart = "sudo systemctl restart Moon"
+        restart = "sudo systemctl restart Dexbot"
     else:
-        restart = "cd Moon-Userbot/ && python main.py"
+        restart = "cd Dexbot/ && python main.py"
 
     app.start()
     try:
         app.send_message(
             "me",
-            f"<b>[{datetime.now()}] Moon-Userbot launched! \n"
-            "Channel: @moonuserbot\n"
-            "Custom modules: @moonub_modules\n"
-            "Chat: @moonub_chat\n"
+            f"<b>[{datetime.now()}] Dexbot launched! \n"
+            "Channel: @dexbot\n"
+            "Custom modules: @dexbot_modules\n"
+            "Chat: @dexbot_chat\n"
             f"For restart, enter:</b>\n"
             f"<code>{restart}</code>",
         )

@@ -41,7 +41,7 @@ else
 fi
 
 if command -v termux-setup-storage; then
-  printf "${RED}For termux, please use https://raw.githubusercontent.com/The-MoonTg-project/Moon-Userbot/main/termux-install.sh${NC}\n" # skipcq
+  printf "${RED}For termux, please use https://raw.githubusercontent.com/The-DexTg-project/Dexbot/main/termux-install.sh${NC}\n" # skipcq
   exit 1
 fi
 
@@ -64,17 +64,17 @@ pacman)
 esac
 
 # Clone repository if not exists
-if [[ -d "Moon-Userbot" && "$(basename "$PWD")" != "Moon-Userbot" ]]; then
-  cd Moon-Userbot || exit 2
-elif [[ "$(basename "$PWD")" == "Moon-Userbot" && -f ".env.dist" && -f "main.py" && -d "modules" ]]; then
-  printf "${BLUE}Already inside the Moon-Userbot repo, proceeding...${NC}\n" # skipcq
+if [[ -d "Dexbot" && "$(basename "$PWD")" != "Dexbot" ]]; then
+  cd Dexbot || exit 2
+elif [[ "$(basename "$PWD")" == "Dexbot" && -f ".env.dist" && -f "main.py" && -d "modules" ]]; then
+  printf "${BLUE}Already inside the Dexbot repo, proceeding...${NC}\n" # skipcq
 else
-  git clone https://github.com/The-MoonTg-project/Moon-Userbot || exit 2
-  cd Moon-Userbot || exit 2
+  git clone https://github.com/The-DexTg-project/Dexbot || exit 2
+  cd Dexbot || exit 2
 fi
 
 if [[ -f ".env" ]] && [[ -f "my_account.session" ]]; then
-  printf "${GREEN}It seems that Moon-Userbot is already installed. Exiting...${NC}\n" # skipcq
+  printf "${GREEN}It seems that Dexbot is already installed. Exiting...${NC}\n" # skipcq
   exit
 fi
 
@@ -201,7 +201,7 @@ while true; do
     printf "Please enter db_url\n"
     printf "You can get it here -> https://mongodb.com/atlas\n"
     read -r -p "> " db_url
-    db_name=Moon_Userbot
+    db_name=Dexbot
     db_type=mongodb
     break
     ;;
@@ -224,7 +224,7 @@ while true; do
     systemctl start mongodb
 
     db_url=mongodb://localhost:27017
-    db_name=Moon_Userbot
+    db_name=Dexbot
     db_type=mongodb
     break
     ;;
@@ -259,7 +259,7 @@ PM_LIMIT=${pm_limit}
 SECOND_SESSION=${second_session}
 EOL
 
-# Adjust the ownership of the Moon-Userbot directory
+# Adjust the ownership of the Dexbot directory
 chown -R $SUDO_USER:$SUDO_USER .
 
 # Configure the bot based on selected installation type
@@ -286,22 +286,22 @@ while true; do
       su -c "pm2 startup" $SUDO_USER
       env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u $SUDO_USER --hp /home/$SUDO_USER
     fi
-    su -c "pm2 start main.py --name Moon --interpreter python3" $SUDO_USER
+    su -c "pm2 start main.py --name Dexbot --interpreter python3" $SUDO_USER
     su -c "pm2 save" $SUDO_USER
 
     printf "${GREEN}============================\\n" # skipcq
-    printf "Great! Moon-Userbot installed successfully and running now!\n"
+    printf "Great! Dexbot installed successfully and running now!\n"
     printf "Installation type: PM2\n"
-    printf "Start with: \"pm2 start Moon\"\n"
-    printf "Stop with: \"pm2 stop Moon\"\n"
-    printf "Process name: Moon\n"
+    printf "Start with: \"pm2 start Dexbot\"\n"
+    printf "Stop with: \"pm2 stop Dexbot\"\n"
+    printf "Process name: Dexbot\n"
     printf "============================${NC}\n" # skipcq
     break
     ;;
   2)
-    cat >/etc/systemd/system/Moon.service <<EOL
+    cat >/etc/systemd/system/Dexbot.service <<EOL
 [Unit]
-Description=Service for Moon Userbot
+Description=Service for Dexbot
 [Service]
 Type=simple
 ExecStart=$(which python3) ${PWD}/main.py
@@ -313,20 +313,20 @@ Group=${SUDO_USER}
 WantedBy=multi-user.target
 EOL
     systemctl daemon-reload
-    systemctl start Moon
-    systemctl enable Moon
+    systemctl start Dexbot
+    systemctl enable Dexbot
 
     printf "${GREEN}============================\\n" # skipcq
-    printf "Great! Moon-Userbot installed successfully and running now!\n"
+    printf "Great! Dexbot installed successfully and running now!\n"
     printf "Installation type: Systemd service\n"
-    printf "Start with: \"sudo systemctl start Moon\"\n"
-    printf "Stop with: \"sudo systemctl stop Moon\"\n"
+    printf "Start with: \"sudo systemctl start Dexbot\"\n"
+    printf "Stop with: \"sudo systemctl stop Dexbot\"\n"
     printf "============================${NC}\n" # skipcq
     break
     ;;
   3)
     printf "${GREEN}============================\\n" # skipcq
-    printf "Great! Moon-Userbot installed successfully!\n"
+    printf "Great! Dexbot installed successfully!\n"
     printf "Installation type: Custom\n"
     printf "Start with: \"python3 main.py\"\n"
     printf "============================${NC}\n" # skipcq
@@ -340,5 +340,5 @@ done
 
 su -c "python3 install.py ${install_type}" $SUDO_USER || exit 3
 
-# Adjust the ownership of the Moon-Userbot directory again as a final step
+# Adjust the ownership of the Dexbot directory again as a final step
 chown -R $SUDO_USER:$SUDO_USER .
