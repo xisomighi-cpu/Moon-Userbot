@@ -1,10 +1,10 @@
 {
-  "name": "Moon-userbot",
+  "name": "Dexbot",
   "description": "A Simple, Fast, Customizable, Ai powered Userbot for Telegram with most easiest installation.",
   "logo": "https://camo.githubusercontent.com/1efdfa6416b3cd08471d865ca9ebf0fbdd38602ea95425f18a9bec6aeeefe49b/68747470733a2f2f74656c656772612e70682f66696c652f3063333763326662306631393463633163303334342e6a7067",
   "keywords": [
     "telegram",
-    "Moon-userbot",
+    "Dexbot",
     "bot",
     "python",
     "pyrogram"
@@ -33,7 +33,7 @@
     },
     "DATABASE_NAME": {
       "description": "set database name, if using sqlite then change it to `db.sqlite3`",
-      "value": "moonub",
+      "value": "dexbot",
       "required": true
     },
     "DATABASE_TYPE": {
@@ -42,7 +42,7 @@
       "required": true
     },
     "STRINGSESSION": {
-      "description": "Pyrogram V2 Session String. Don't use bots or else you'll be responsible for your actions. Gen yourself https://github.com/The-MoonTg-project/Moon-Userbot?tab=readme-ov-file#-optional-vars.",
+      "description": "Pyrogram V2 Session String. Don't use bots or else you'll be responsible for your actions. Gen yourself https://github.com/The-DexTg-project/Dexbot?tab=readme-ov-file#-optional-vars.",
       "required": true
     },
     "APIFLASH_KEY": {
@@ -82,7 +82,7 @@
       "url": "https://github.com/heroku/heroku-buildpack-activestorage-preview"
     },
     {
-      "url": "https://github.com/The-MoonTg-project/heroku-buildpack-yt-dlp"
+      "url": "https://github.com/The-DexTg-project/heroku-buildpack-yt-dlp"
     }
   ]
 }

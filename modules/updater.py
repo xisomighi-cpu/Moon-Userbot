@@ -1,5 +1,5 @@
-#  Moon-Userbot - telegram userbot
-#  Copyright (C) 2020-present Moon Userbot Organization
+#  Dexbot - telegram userbot
+#  Copyright (C) 2020-present Dexbot Organization
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -49,8 +49,8 @@ async def restart_cmd(_, message: Message):
         return
 
     await message.edit("<b>Restarting...</b>")
-    if os.path.exists("moonlogs.txt"):
-        os.remove("moonlogs.txt")
+    if os.path.exists("dexlogs.txt"):
+        os.remove("dexlogs.txt")
     restart()
 
 
@@ -106,8 +106,8 @@ async def update(_, message: Message):
         db.remove("core.updater", "restart_info")
     else:
         await message.edit("<b>Updating: done! Restarting...</b>")
-        if os.path.exists("moonlogs.txt"):
-            os.remove("moonlogs.txt")
+        if os.path.exists("dexlogs.txt"):
+            os.remove("dexlogs.txt")
         restart()
 
 

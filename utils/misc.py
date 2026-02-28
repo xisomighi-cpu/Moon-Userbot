@@ -1,5 +1,5 @@
-#  Moon-Userbot - telegram userbot
-#  Copyright (C) 2020-present Moon Userbot Organization
+#  Dexbot - telegram userbot
+#  Copyright (C) 2020-present Dexbot Organization
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -40,7 +40,7 @@ try:
 except git.exc.InvalidGitRepositoryError:
     repo = git.Repo.init()
     origin = repo.create_remote(
-        "origin", "https://github.com/The-MoonTg-project/Moon-Userbot"
+        "origin", "https://github.com/The-DexTg-project/Dexbot"
     )
     origin.fetch()
     repo.create_head("main", origin.refs.main)

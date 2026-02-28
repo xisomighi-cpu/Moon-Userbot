@@ -1,5 +1,5 @@
-#  Moon-Userbot - telegram userbot
-#  Copyright (C) 2020-present Moon Userbot Organization
+#  Dexbot - telegram userbot
+#  Copyright (C) 2020-present Dexbot Organization
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -67,7 +67,7 @@ common_params = {
     "hide_password": True,
     "workdir": SCRIPT_PATH,
     "app_version": userbot_version,
-    "device_model": f"Moon-Userbot @ {gitrepo.head.commit.hexsha[:7]}",
+    "device_model": f"Dexbot @ {gitrepo.head.commit.hexsha[:7]}",
     "system_version": platform.version() + " " + platform.machine(),
     "sleep_threshold": 30,
     "test_mode": config.test_server,
@@ -91,7 +91,7 @@ def load_missing_modules():
 
     try:
         f = requests.get(
-            f"https://raw.githubusercontent.com/The-MoonTg-project/custom_modules/{config.modules_repo_branch}/full.txt"
+            f"https://raw.githubusercontent.com/The-DexTg-project/custom_modules/{config.modules_repo_branch}/full.txt"
         ).text
     except Exception:
         logging.error("Failed to fetch custom modules list")
@@ -103,7 +103,7 @@ def load_missing_modules():
     for module_name in all_modules:
         module_path = f"{custom_modules_path}/{module_name}.py"
         if not os.path.exists(module_path) and module_name in modules_dict:
-            url = f"https://raw.githubusercontent.com/The-MoonTg-project/custom_modules/{config.modules_repo_branch}/{modules_dict[module_name]}.py"
+            url = f"https://raw.githubusercontent.com/The-DexTg-project/custom_modules/{config.modules_repo_branch}/{modules_dict[module_name]}.py"
             resp = requests.get(url)
             if resp.ok:
                 with open(module_path, "wb") as f:
@@ -116,7 +116,7 @@ def load_missing_modules():
 async def main():
     logging.basicConfig(
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-        handlers=[logging.FileHandler("moonlogs.txt"), logging.StreamHandler()],
+        handlers=[logging.FileHandler("dexlogs.txt"), logging.StreamHandler()],
         level=logging.INFO,
     )
     DeleteAccount.__new__ = None
@@ -188,7 +188,7 @@ async def main():
             ],
         )
 
-    logging.info("Moon-Userbot started!")
+    logging.info("Dexbot started!")
 
     app.loop.create_task(rentry_cleanup_job())
 

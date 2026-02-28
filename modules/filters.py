@@ -1,5 +1,5 @@
-#  Moon-Userbot - telegram userbot
-#  Copyright (C) 2020-present Moon Userbot Organization
+#  Dexbot - telegram userbot
+#  Copyright (C) 2020-present Dexbot Organization
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -148,7 +148,7 @@ async def filter_handler(client: Client, message: Message):
         except (errors.RPCError, ValueError, KeyError):
             # group is not accessible or isn't created
             chat = await client.create_supergroup(
-                "Moon_Userbot_Notes_Filters", "Don't touch this group, please"
+                "Dexbot_Notes_Filters", "Don't touch this group, please"
             )
             db.set("core.notes", "chat_id", chat.id)
 

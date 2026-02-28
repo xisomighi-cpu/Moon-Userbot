@@ -1,8 +1,8 @@
 services:
 - type: worker
-  name: Moon-Userbot
+  name: Dexbot
   runtime: docker
-  repo: https://github.com/The-MoonTg-project/Moon-Userbot
+  repo: https://github.com/The-DexTg-project/Dexbot
   plan: starter
   envVars:
   - key: STABILITY_KEY
